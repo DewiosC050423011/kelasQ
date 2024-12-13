@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
+5
 int arrdata [100];
 int n;
 
@@ -10,24 +11,12 @@ void sortingAsc();
 void sortingDsc();
 void tukar(int *a, int *b);
 
-void mPertama(string pesan){
-system("cls");
-cout<<"hallo saya menu "<<pesan;
-getch();
-}
-
-void tukar(int *a,int *b){
-int t=*a;
-*a=*b;
-*b=t;
-}
-
 
 int main() {
 char pl;
 cout << "Masukan jumlah data (maksimal 100):";
 cin >> n; // Mengatur jumlah data di sini
-if (n > 100) n = 100; //Batasi jumlah data maksimal 100
+if (n > 100) n = 5; //Batasi jumlah data maksimal 100
 
 do
 {
@@ -69,5 +58,38 @@ void masukkanData()
         cin >> arrdata[i];
     }
     cout << "Data berhasil dimasukkan.\n";
+    getch();
+}
+
+void tampilkanData()
+{
+    system("cls");
+    cout << "Data yang dimasukkan:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arrdata[i] << " ";
+    }
+    cout << "\n";
+    getch();
+}
+void tukar(int *a,int *b){
+int t=*a;
+*a=*b;
+*b=t;
+}
+
+void sortingAsc()
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arrdata[j] > arrdata[j + 1])
+            {
+                tukar(&arrdata[j], &arrdata[j + 1]);
+            }
+        }
+    }
+    cout << "Data berhasil diurutkan secara ascending.\n";
     getch();
 }
