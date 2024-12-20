@@ -1,7 +1,7 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
-5
+
 int arrdata [100];
 int n;
 
