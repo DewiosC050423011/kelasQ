@@ -1,49 +1,60 @@
 #include <iostream>
+#include <string>
 #include <conio.h>
 using namespace std;
 
-int arrdata [100];
-int n;
+struct mahasiswa {
+string nim;
+string nama;
+string alamat;
+float ipk;
+};
 
-void masukkanData();
-void tampilkanData();
-void sortingAsc();
-void sortingDsc();
-void tukar(int *a, int *b);
+mahasiswa sikc [30];
 
+int pos = -1;
 
-int main() {
-char pl;
-cout << "Masukan jumlah data (maksimal 100):";
-cin >> n; // Mengatur jumlah data di sini
-if (n > 100) n = 5; //Batasi jumlah data maksimal 100
-
-do
+void dMenu()
 {
- system("cls");
-    cout << "Aplikasi sorting bubble" << "\n";
-    cout << "1. masukkan data" << "\n";
-    cout << "2. tampilkan data" << "\n";
-    cout << "3. sorting asc" << "\n";
-    cout << "4. sorting dsc" << "\n";
+    system("cls");
+    cout << "Aplikasi KelasQ" << "\n";
+    cout << "1. Masukkan data" << "\n";
+    cout << "2. Tampilkan data" << "\n";
+    cout << "3. Perbaikan data" << "\n";
+    cout << "4. Menghapus data" << "\n";
     cout << "5. Exit" << "\n";
     cout << "Masukan angka :";
-    pl = getch();
+}
     
     switch (pl)
     {
     case '1':
-      /* code */
-      masukkanData();
-      break;
+      {
+        pos++;
+        system("cls");
+        fflush(stdin);
+        cout << "masukan nim: ";
+        getline (cin, sikc[pos].nim);
+        cout << "masukan nama: ";
+        getline (cin, sikc[pos].nama);
+        cout << "masukan alamat: ";
+        getline (cin, sikc[pos].alamat);
+        cout << "masukan ipk: ";
+        cin >> sikc[pos].ipk;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        break;
+      }
+
     case '2':
-      tampilkanData();
-      /* code */
-      break;
+        void tampilkanData(int p){
+        cout << sikc[p].nim<<" , "<< sikc[p].nama<<" , "<< sikc[p].alamat<<" , "<<
+        sikc[p].ipk<<endl;
+          break;
+      }   
+
+    
     case '3':
-      sortingAsc();
-      /* code */
-      break;
+        break;
 } while (pl != '5');
   return 0;
 }
